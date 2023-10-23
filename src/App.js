@@ -5,7 +5,7 @@ import CalcButton from './components/CalcButton';
 import { useReducer } from 'react';
 import { initialState } from './reducers';
 import reducer from './reducers';
-import { applyNumber, changeOperation, actionClearDisplay, actionStageToMemory } from './actions';
+import { applyNumber, changeOperation, actionClearDisplay, actionStageToMemory, actionFetchFromMemory } from './actions';
 
 function App() {
 
@@ -20,11 +20,15 @@ function App() {
     }
 
     function hClearDisplay() {
-        dispatchState(actionClearDisplay())
+        dispatchState(actionClearDisplay());
     }
 
     function hStageToMemory() {
-        dispatchState(actionStageToMemory())
+        dispatchState(actionStageToMemory());
+    }
+    
+    function hFetchFromMemory() {
+        dispatchState(actionFetchFromMemory());
     }
   return (
     <div className="App">
@@ -44,7 +48,7 @@ function App() {
 
             <div className="row">
               <CalcButton onClick={hStageToMemory} value={"M+"} />
-              <CalcButton value={"MR"} />
+              <CalcButton onClick={hFetchFromMemory} value={"MR"} />
               <CalcButton value={"MC"} />
             </div>
 
