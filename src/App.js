@@ -22,6 +22,10 @@ function App() {
     function hClearDisplay() {
         dispatchState(actionClearDisplay())
     }
+
+    function hStageToMemory() {
+        dispatchState(actionStageToMemory())
+    }
   return (
     <div className="App">
       <nav className="navbar navbar-dark bg-dark">
@@ -39,7 +43,7 @@ function App() {
             </div>
 
             <div className="row">
-              <CalcButton value={"M+"} />
+              <CalcButton onClick={hStageToMemory} value={"M+"} />
               <CalcButton value={"MR"} />
               <CalcButton value={"MC"} />
             </div>
