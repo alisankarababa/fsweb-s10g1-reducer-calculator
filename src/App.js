@@ -19,6 +19,9 @@ function App() {
         dispatchState(changeOperation(e.target.value));
     }
 
+    function hClearDisplay() {
+        dispatchState(actionClearDisplay())
+    }
   return (
     <div className="App">
       <nav className="navbar navbar-dark bg-dark">
@@ -66,7 +69,7 @@ function App() {
             </div>
 
             <div className="row ce_button">
-              <CalcButton value={"CE"} />
+              <CalcButton onClick={hClearDisplay} value={"CE"} />
             </div>
 
           </form>
