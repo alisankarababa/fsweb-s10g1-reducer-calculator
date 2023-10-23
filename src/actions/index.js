@@ -5,6 +5,7 @@ export const CHANGE_OPERATION = "CHANGE_OPERATION";
 export const CLEAR_DISPLAY = "CLEAR_DISPLAY";
 export const STAGE_TO_MEMORY = "STAGE_TO_MEMORY";
 export const FETCH_FROM_MEMORY = "FETCH_FROM_MEMORY";
+export const CLEAR_MEMORY = "CLEAR_MEMORY"
 
 export const addOne = () => {
   return ({ type: ADD_ONE });
@@ -28,4 +29,8 @@ export function actionStageToMemory() {
 
 export function actionFetchFromMemory() {
     return {type: FETCH_FROM_MEMORY};
+}
+
+export function actionClearMemory() {
+    return {type: CLEAR_MEMORY};
 }

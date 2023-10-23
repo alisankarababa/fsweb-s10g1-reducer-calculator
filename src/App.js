@@ -5,7 +5,7 @@ import CalcButton from './components/CalcButton';
 import { useReducer } from 'react';
 import { initialState } from './reducers';
 import reducer from './reducers';
-import { applyNumber, changeOperation, actionClearDisplay, actionStageToMemory, actionFetchFromMemory } from './actions';
+import { applyNumber, changeOperation, actionClearDisplay, actionStageToMemory, actionFetchFromMemory, actionClearMemory } from './actions';
 
 function App() {
 
@@ -30,6 +30,10 @@ function App() {
     function hFetchFromMemory() {
         dispatchState(actionFetchFromMemory());
     }
+
+    function hClearMemory() {
+        dispatchState(actionClearMemory());
+    }
   return (
     <div className="App">
       <nav className="navbar navbar-dark bg-dark">
@@ -49,7 +53,7 @@ function App() {
             <div className="row">
               <CalcButton onClick={hStageToMemory} value={"M+"} />
               <CalcButton onClick={hFetchFromMemory} value={"MR"} />
-              <CalcButton value={"MC"} />
+              <CalcButton onClick={hClearMemory} value={"MC"} />
             </div>
 
             <div className="row">
