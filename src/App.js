@@ -4,10 +4,17 @@ import TotalDisplay from './components/TotalDisplay';
 import CalcButton from './components/CalcButton';
 import { useReducer } from 'react';
 import { initialState } from './reducers';
+import reducer from './reducers';
+import { applyNumber, changeOperation, actionClearDisplay, actionStageToMemory } from './actions';
 
 function App() {
 
     const [state, dispatchState] = useReducer( reducer , initialState );
+
+    function hApplyNumber(e) {
+        dispatchState(applyNumber(Number(e.target.value)));
+    }
+
   return (
     <div className="App">
       <nav className="navbar navbar-dark bg-dark">
@@ -18,7 +25,7 @@ function App() {
         <div className="col-md-12 d-flex justify-content-center">
           <form name="Cal">
 
-            <TotalDisplay value={0} />
+            <TotalDisplay value={state.total} />
             <div className="row details">
               <span id="operation"><b>Operation:</b> X</span>
               <span id="memory"><b>Memory:</b> 0</span>
@@ -31,21 +38,21 @@ function App() {
             </div>
 
             <div className="row">
-              <CalcButton value={1} />
-              <CalcButton value={2} />
-              <CalcButton value={3} />
+              <CalcButton onClick={hApplyNumber} value={1} />
+              <CalcButton onClick={hApplyNumber} value={2} />
+              <CalcButton onClick={hApplyNumber} value={3} />
             </div>
 
             <div className="row">
-              <CalcButton value={4} />
-              <CalcButton value={5} />
-              <CalcButton value={6} />
+              <CalcButton onClick={hApplyNumber} value={4} />
+              <CalcButton onClick={hApplyNumber} value={5} />
+              <CalcButton onClick={hApplyNumber} value={6} />
             </div>
 
             <div className="row">
-              <CalcButton value={7} />
-              <CalcButton value={8} />
-              <CalcButton value={9} />
+              <CalcButton onClick={hApplyNumber} value={7} />
+              <CalcButton onClick={hApplyNumber} value={8} />
+              <CalcButton onClick={hApplyNumber} value={9} />
             </div>
 
             <div className="row">
