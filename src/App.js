@@ -15,6 +15,10 @@ function App() {
         dispatchState(applyNumber(Number(e.target.value)));
     }
 
+    function hChangeOperation(e) {
+        dispatchState(changeOperation(e.target.value));
+    }
+
   return (
     <div className="App">
       <nav className="navbar navbar-dark bg-dark">
@@ -56,9 +60,9 @@ function App() {
             </div>
 
             <div className="row">
-              <CalcButton value={"+"} />
-              <CalcButton value={"*"} />
-              <CalcButton value={"-"} />
+              <CalcButton onClick={hChangeOperation} value={"+"} />
+              <CalcButton onClick={hChangeOperation} value={"*"} />
+              <CalcButton onClick={hChangeOperation} value={"-"} />
             </div>
 
             <div className="row ce_button">
